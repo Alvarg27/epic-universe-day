@@ -1,6 +1,6 @@
 // Keeps the planner opening on weak park signal: the page itself comes from the network when it can, from cache when it can't.
 // Live data (waits, weather) is never cached here; the page keeps its own last copy.
-const CACHE = 'eu-planner-v1';
+const CACHE = 'eu-planner-v2';
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./', './index.html'])).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(self.clients.claim()); });
 self.addEventListener('fetch', e => {
